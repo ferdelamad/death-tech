@@ -2,17 +2,25 @@ import React, { useState } from 'react'
 import getStripe from '../../utils/stripejs'
 
 const cardStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-around',
-  alignItems: 'flex-start',
-  padding: '1rem',
+  // display: 'flex',
+  // flexDirection: 'column',
+  // justifyContent: 'space-around',
+  // alignItems: 'flex-start',
+  padding: '1rem 2.5rem',
   marginBottom: '1rem',
   boxShadow: '5px 5px 25px 0 rgba(46,61,73,.2)',
   backgroundColor: '#fff',
   borderRadius: '6px',
   maxWidth: '300px',
 }
+
+const formStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+}
+
 const buttonStyles = {
   display: 'block',
   fontSize: '13px',
@@ -65,8 +73,9 @@ const ProductCard = ({ product }) => {
 
   return (
     <div style={cardStyles}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={formStyles}>
         <h4>{product.name}</h4>
+        <img src={product.images[0]} alt="" width="200"/>
         <select name="priceSelect">
           {product.prices.map(price => (
             <option key={price.id} value={price.id}>
